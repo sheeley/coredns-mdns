@@ -180,8 +180,34 @@ func (m *MDNS) BrowseMDNS() {
 			iface = foundIface
 		}
 	}
-	_ = queryService("_workstation._tcp", entriesCh, iface, ZeroconfImpl{})
-	_ = queryService("_etcd-server-ssl._tcp", srvEntriesCh, iface, ZeroconfImpl{})
+
+	serviceTypes := []string{
+		"airplay._tcp",
+		"_companion-link._tcp",
+		"_elg._tcp",
+		"_hap._tcp",
+		"_home-assistant._tcp",
+		"_home-sharing._tcp",
+		"_hscp._tcp",
+		"_http-alt._tcp",
+		"_http._tcp",
+		"_ipps._tcp",
+		"_ipp._tcp",
+		"_matter._tcp",
+		"_pdl-datastream._tcp",
+		"_print-caps._tcp",
+		"_printer._tcp",
+		"_raop._tcp",
+		"_rfb._tcp",
+		"_sftp-ssh._tcp",
+		"_smb._tcp",
+		"_srpl-tls._tcp",
+		"_ssh._tcp",
+		"_workstation._tcp",
+	}
+	for _, serviceType := range serviceTypes {
+		_ = queryService(serviceType, entriesCh, iface, ZeroconfImpl{})
+	}
 
 	m.mutex.Lock()
 	defer m.mutex.Unlock()
