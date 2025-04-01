@@ -2,13 +2,13 @@ module github.com/sheeley/coredns-mdns
 
 go 1.23.0
 
-toolchain go1.23.4
+toolchain go1.24.1
 
 require (
 	github.com/celebdor/zeroconf v0.0.0-20210412110229-8ba34664402f
 	github.com/coredns/caddy v1.1.2-0.20241029205200-8de985351a98
 	github.com/coredns/coredns v1.12.0
-	github.com/miekg/dns v1.1.63
+	github.com/miekg/dns v1.1.64
 	github.com/openshift/mdns-publisher v0.0.0-20220222182051-8fef1ccb075f
 	golang.org/x/net v0.35.0
 )
